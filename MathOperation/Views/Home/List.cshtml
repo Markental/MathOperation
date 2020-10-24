@@ -1,0 +1,22 @@
+﻿@model List<MathOperation.Models.Operation>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Operations</h1>
+
+<a asp-action="Create">Add pair</a>
+
+<ul>
+    @foreach (var op in Model)
+    {
+    <div class="jumbotron">
+        <p>First number: @op.First</p>
+        <p>Second number: @op.Second</p>
+        <p class="text-danger">Result: @op.Result</p>
+        <p>Description: @op.Description</p>
+        <p>Creation date: @op.CreationDate.ToString()</p>
+        <a asp-action="delete" asp-route-id="@op.Id"> delete</a>
+    </div>
+    }
+</ul>
